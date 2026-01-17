@@ -1,4 +1,5 @@
 import { MONTH } from "./data.js";
+import { queryTracker } from "./queryTracker.js";
 
 const dbg = (value) => console.log(">>>", value);
 
@@ -20,4 +21,19 @@ export const createDate = () => {
   return FormatDate(dd, mm, yy);
 };
 
+export const takeDetailAboutItem = () => {
+  const itemName = prompt("enter the item name : ");
+  const itemUnitCost = prompt("enter the unit price of the item : ");
+  const itemQuantity = prompt("enter the quantity : ");
+  return [itemName, itemUnitCost, itemQuantity];
+};
+
+export const addExpenses = (tracker, trackerFns) => {
+  const [name, price, quantity] = takeDetailAboutItem();
+  queryTracker(tracker,trackerFns, name, price, quantity, createDate());
+  if (confirm("do you want to insert another item ? ")) {
+    return addExpenses(tracker, trackerFns);
+  }
+  return;
+};
 

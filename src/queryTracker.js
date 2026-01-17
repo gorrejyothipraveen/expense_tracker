@@ -3,13 +3,13 @@ export const queryTracker = (tracker,trackerFns, args) => {
     throw new Error("tracker is not exists");
   }
 
-  const params = [...args.slice(1)];
-  switch(args[0]) {
-    case "init" :
-      return trackerFns.initTracker(tracker);
-    case "add" :
-      return trackerFns.addItemDetails(tracker, ...params);
-    case "list" :
-      return trackerFns.listItemDetails(tracker);
+  const operations = {
+    init : trackerFns.initTracker,
+    add : trackerFns.addItemDetails,
+    list : trackerFns.listItemDetails
   }
+
+  const params = [...args.slice(1)];
+  return operations[args[0]](tracker, ...params)
+  
 };

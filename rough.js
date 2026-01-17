@@ -23,3 +23,8 @@ export const insertIntoLog = async (file) => {
   logFile.write(ENCODE(toJsonFormat(logObject)));
   return;
 };
+
+
+
+
+console.table(addItemDetails({ tables: { items: [] } }).tables.items);

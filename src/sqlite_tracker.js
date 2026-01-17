@@ -1,7 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 
-export const createTracker = () => {
-  const tracker = new DatabaseSync(":memory:");
+export const createTracker = (db = ":memory:") => {
+  const tracker = new DatabaseSync(db);
   return tracker;
 };
 
