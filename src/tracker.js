@@ -21,6 +21,3 @@ export const createDate = () => {
 };
 
 
-export const createTracker = () => {
-  return { tables : {}}
-}
