@@ -5,12 +5,6 @@ export const createTracker = () => {
   return tracker;
 };
 
-export const queryTracker = (tracker) => {
-  if (tracker === undefined) {
-    throw new Error("tracker is not exists");
-  }
-};
-
 export const initTracker = (tracker) => {
   tracker.exec(`
     CREATE TABLE  IF NOT EXISTS expense_tracker(
