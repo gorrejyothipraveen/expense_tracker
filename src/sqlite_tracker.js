@@ -36,6 +36,19 @@ export const addItemDetails = (
     `INSERT into expense_tracker (item_name, item_price, quantity, total_amount, date)
      values (?, ?, ?, ?, ?)`;
   const insertStatement = tracker.prepare(query);
-  const insertInfo = insertStatement.run(item, price , quantity, totalAmount, date);
+  const insertInfo = insertStatement.run(
+    item,
+    price,
+    quantity,
+    totalAmount,
+    date,
+  );
   return insertInfo;
+};
+
+export const listItemDetails = (tracker) => {
+  const query = `SELECT * FROM expense_tracker`;
+  const selectStatement = tracker.prepare(query);
+  const records = selectStatement.all();
+  return records;
 };
