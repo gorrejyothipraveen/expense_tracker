@@ -1,7 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 
 export const createTracker = () => {
-  const tracker = new DatabaseSync(':memory:');
+  const tracker = new DatabaseSync(":memory:");
   return tracker;
 };
 
@@ -22,4 +22,20 @@ export const initTracker = (tracker) => {
     date TEXT NOT NULL
     );
   `);
+};
+
+export const addItemDetails = (
+  tracker,
+  item,
+  price,
+  quantity,
+  totalAmount,
+  date,
+) => {
+  const query =
+    `INSERT into expense_tracker (item_name, item_price, quantity, total_amount, date)
+     values (?, ?, ?, ?, ?)`;
+  const insertStatement = tracker.prepare(query);
+  const insertInfo = insertStatement.run(item, price , quantity, totalAmount, date);
+  return insertInfo;
 };
