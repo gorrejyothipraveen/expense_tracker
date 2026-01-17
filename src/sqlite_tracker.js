@@ -13,7 +13,7 @@ export const queryTracker = (tracker) => {
 
 export const initTracker = (tracker) => {
   tracker.exec(`
-    CREATE TABLE  IF NOT EXISTS EXPENSE_TRACKER(
+    CREATE TABLE  IF NOT EXISTS expense_tracker(
     item_id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name TEXT NOT NULL,
     item_price INTEGER NOT NULL CHECK (item_price > 0),
@@ -21,5 +21,5 @@ export const initTracker = (tracker) => {
     total_amount INTEGER NOT NULL CHECK (total_amount > 0),
     date TEXT NOT NULL
     );
-  )`);
+  `);
 };
