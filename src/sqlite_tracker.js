@@ -40,8 +40,7 @@ export const addItemDetails = (
   return insertInfo;
 };
 
-export const listItemDetails = (tracker) => {
-  const query = `SELECT * FROM expense_tracker`;
+export const listItemDetails = (tracker, query = `SELECT * FROM expense_tracker`) => {
   const selectStatement = tracker.prepare(query);
   const records = selectStatement.all();
   return records;

@@ -4,6 +4,8 @@ import { DatabaseSync } from "node:sqlite";
 import { afterEach, beforeEach, describe, it } from "jsr:@std/testing/bdd";
 import { queryTracker } from "../src/queryTracker.js";
 
+console.log(trackerFns)
+
 Deno.test("creating the tracker database ", () => {
   const tracker = trackerFns.createTracker();
   assertEquals(tracker, new DatabaseSync(":memory:"));

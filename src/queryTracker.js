@@ -2,7 +2,7 @@ export const queryTracker = (tracker,trackerFns, args) => {
   if (tracker === undefined) {
     throw new Error("tracker is not exists");
   }
-
+  
   const operations = {
     init : trackerFns.initTracker,
     add : trackerFns.addItemDetails,
