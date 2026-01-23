@@ -2,6 +2,7 @@ import { queryTracker } from "./queryTracker.js";
 import * as trackerFns from "./sqlite_tracker.js";
 import {
   addExpenses,
+  viewAllRecords,
   viewMonthlyExpenses,
   viewTodayExpenses,
   viewYearlyExpenses,
@@ -28,6 +29,7 @@ export const viewExpenses = (tracker, trackerFns) => {
     "view today expenses ",
     "view monthly expenses",
     "view yearly expenses",
+    "view all the records"
   ];
   displayMenu(list);
   const option = prompt(">>> enter :");
@@ -38,6 +40,7 @@ const view = {
   1: viewTodayExpenses,
   2: viewMonthlyExpenses,
   3: viewYearlyExpenses,
+  4 : viewAllRecords
 };
 
 const operations = {

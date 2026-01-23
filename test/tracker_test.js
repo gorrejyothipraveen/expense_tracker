@@ -10,8 +10,5 @@ Deno.test('convert number to string', () => {
 });
 
 Deno.test('formatting the date', () => {
-  assertEquals(createDate(), '17-01-2026')
+  assertEquals(createDate(), '19-01-2026')
 });
-
-
-

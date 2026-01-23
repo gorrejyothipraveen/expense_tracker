@@ -25,7 +25,7 @@ export const createDate = () => {
 
   const [dd, mm, yy] = toString(day, month, year);
   return FormatDate(dd, mm, yy);
-};
+}; 
 
 export const newLine = (times = 1) => console.log("\n".repeat(times));
 
@@ -79,3 +79,9 @@ export const viewTodayExpenses = (tracker, trackerFns) => {
   const amount = queryTracker(tracker, trackerFns, ["list", query]);
   return amount;
 };
+
+
+export const viewAllRecords = (tracker, trackerFns) => {
+  const records = queryTracker(tracker, trackerFns, ['list']);
+  return records;
+}
